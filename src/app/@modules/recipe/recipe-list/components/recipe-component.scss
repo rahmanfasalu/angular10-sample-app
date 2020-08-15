@@ -1,0 +1,12 @@
+@import "../../../../@styles/variables.scss";
+.card {
+  width: 18rem;
+  float: left;
+  img {
+    height: 200px;
+  }
+  h5 {
+    color: $black;
+    text-align: center;
+  }
+}
