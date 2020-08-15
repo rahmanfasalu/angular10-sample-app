@@ -1,0 +1,37 @@
+<h2>Ingrediants</h2>
+<div>
+  <span>Servings :</span>
+  <input
+    type="number"
+    class="form-control"
+    [(ngModel)]="servings"
+    max="100"
+    min="1"
+    class="servings"
+  />
+  <app-button (action)="changeUnit('metric')" [active]="activeUnit === 'metric'"
+    >Metric unit
+  </app-button>
+  <app-button
+    (action)="changeUnit('imperial')"
+    [active]="activeUnit === 'imperial'"
+    >Imperial unit
+  </app-button>
+
+  <app-commom-list
+    *ngFor="let item of ingredient; let i = index"
+    class="ingredient-wrapper"
+  >
+    <div class="row">
+      <div class="col-sm">
+        <img src="{{ item.image }}" />
+      </div>
+      <div class="col-sm">
+        {{ item.item }}
+      </div>
+      <div class="col-sm">
+        {{ servings * item.value | unitConverter: item.unit:activeUnit }}
+      </div>
+    </div>
+  </app-commom-list>
+</div>

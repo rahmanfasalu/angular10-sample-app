@@ -1,1 +1,19 @@
-<p>recipe-view works!</p>
+<div *ngIf="recipe?.id">
+  <!--  Recipe info -->
+  <app-recipe-info
+    [image]="recipe.image"
+    [description]="recipe.description"
+    [name]="recipe.title"
+  >
+  </app-recipe-info>
+
+  <!--  Recipe Ingredients  -->
+  <app-recipe-ingredients
+    [ingredient]="recipe.ingredient"
+  ></app-recipe-ingredients>
+
+  <!--  Recipe Instructions  -->
+  <app-recipe-instructions
+    [instructions]="recipe.instructions"
+  ></app-recipe-instructions>
+</div>

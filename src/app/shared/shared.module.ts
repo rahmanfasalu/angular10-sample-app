@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -10,6 +10,8 @@ import { SHARED_DIRECTIVES } from './directives';
 import { SHARED_GUARDS } from './guards';
 
 import { fakeBackendProvider } from '../helpers/fake-backend';
+import { environment } from 'src/environments/environment';
+import { GlobalErrorHandler } from '../@packages/globalErrorHandler/global-error-handler';
 
 const SHARED_MODULES: any[] = [
   HttpClientModule,
@@ -17,6 +19,18 @@ const SHARED_MODULES: any[] = [
   FormsModule,
   RouterModule,
 ];
+
+// Prefer moving this to a new module may be core.
+let PRODUCTION_ONLY_PROVIDER: any[] = [];
+if (environment.production) {
+  PRODUCTION_ONLY_PROVIDER = [
+    ...PRODUCTION_ONLY_PROVIDER,
+    {
+      provide: ErrorHandler,
+      useClass: GlobalErrorHandler,
+    },
+  ];
+}
 
 @NgModule({
   imports: [...SHARED_MODULES],
@@ -28,10 +42,8 @@ const SHARED_MODULES: any[] = [
     ...SHARED_DIRECTIVES,
   ],
   providers: [
-    ...SHARED_COMPONENTS,
-    ...SHARED_PIPES,
-    ...SHARED_DIRECTIVES,
     ...SHARED_GUARDS,
+    ...PRODUCTION_ONLY_PROVIDER,
 
     // provider used to create fake backend
     fakeBackendProvider,

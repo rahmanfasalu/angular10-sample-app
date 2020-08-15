@@ -1,7 +1,7 @@
 import { ErrorHandler, Injectable } from '@angular/core';
 
 //
-//  For connect to sentry or other global error handler
+//  We can connect to sentry or other error handler here
 //
 @Injectable()
 export class GlobalErrorHandler implements ErrorHandler {

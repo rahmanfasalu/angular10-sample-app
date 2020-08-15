@@ -1,0 +1,11 @@
+<br />
+<h2>Instructions</h2>
+<ol
+  *ngFor="let item of instructions; let i = index"
+  class="instructions-wrapper"
+>
+  <li>
+    <span>{{ i + 1 }}</span> -
+    {{ item }}
+  </li>
+</ol>
