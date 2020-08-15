@@ -6,6 +6,12 @@ import {
 } from '@angular/core';
 import { TypeRecipe } from 'src/app/interfaces';
 
+/**
+ * RecipeComponent
+ *
+ * Render Single recipe view with image and title;
+ *
+ */
 @Component({
   selector: 'app-recipe',
   templateUrl: './recipe.component.html',

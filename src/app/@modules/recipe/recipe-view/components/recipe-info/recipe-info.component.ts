@@ -5,6 +5,12 @@ import {
   Input,
 } from '@angular/core';
 
+/**
+ * RecipeInfoComponent
+ *
+ * Child of recipe view page, This component will render recipe title, image and description.
+ *
+ */
 @Component({
   selector: 'app-recipe-info',
   templateUrl: './recipe-info.component.html',

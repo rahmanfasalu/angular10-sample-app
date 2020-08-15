@@ -5,6 +5,12 @@ import {
   ChangeDetectionStrategy,
 } from '@angular/core';
 
+/**
+ * RecipeInstructionsComponent
+ *
+ * Render recipe instructions
+ *
+ */
 @Component({
   selector: 'app-recipe-instructions',
   templateUrl: './recipe-instructions.component.html',

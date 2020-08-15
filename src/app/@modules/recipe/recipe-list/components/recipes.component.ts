@@ -6,6 +6,12 @@ import {
 } from '@angular/core';
 import { TypeRecipe } from 'src/app/interfaces';
 
+/**
+ * RecipesComponent
+ *
+ * Render list od recipe, added router link to navigate to the view page.
+ *
+ */
 @Component({
   selector: 'app-recipes',
   changeDetection: ChangeDetectionStrategy.OnPush,
